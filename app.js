@@ -49,6 +49,17 @@ function countTime() {
     clearInterval(interval);
     readyBtnBox.classList.remove("none");
     timeValue.innerHTML = `${30}`;
+    let boxes = document.querySelectorAll(".box");
+    // convert obj to arr
+    var newArr = Array.from(boxes);
+    newArr = [...boxes];
+    newArr.forEach(function (box) {
+      box.style.opacity = 1;
+      box.children[0].style.opacity = 0;
+    });
+    remain.innerHTML = 8;
+    score.innerHTML = 0;
+    userScoreValue.innerHTML = 0;
   };
 }
 // restart click
@@ -61,18 +72,9 @@ restartBtn.onclick = function () {
 // readyBtb click
 readyBtn.onclick = function () {
   readyBtnBox.classList.add("none");
-  let boxes = document.querySelectorAll(".box");
-  // convert obj to arr
-  var newArr = Array.from(boxes);
-  newArr = [...boxes];
-  newArr.forEach(function (box) {
-    box.style.opacity = 1;
-    box.children[0].style.opacity = 0;
-  });
-  score.innerHTML = 0;
-  userScoreValue.innerHTML = 0;
-  remain.innerHTML = 0;
+
   countTime();
+  handlePlay();
 };
 // out of time onclick
 outOfTimeBox.onclick = function () {
