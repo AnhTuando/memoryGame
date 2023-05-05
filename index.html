@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Memory Game</title>
+    <link
+      rel="shortcut icon"
+      href="https://cdn-icons-png.flaticon.com/512/3408/3408506.png"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="rule">
+      <div class="text">
+        Remember and match the boxes containing the same value, you only have
+        30s !!
+      </div>
+      <button class="attention-btn">Let's Go !!!</button>
+    </div>
+    <div class="app">
+      <div class="row-1">
+        <div class="game-name">The Memory Game</div>
+        <div class="btn-boxes">
+          <div class="restart-btn">Restart</div>
+          <div class="new-game-btn">TuanhDo</div>
+        </div>
+      </div>
+      <div class="row-2">
+        <div class="wrap-box">
+          <div class="box item-1"><span class="value-1">1</span></div>
+          <div class="box item-2"><span class="value-2">2</span></div>
+          <div class="box item-3"><span class="value-3">3</span></div>
+          <div class="box item-4"><span class="value-4">4</span></div>
+          <div class="box item-5"><span class="value-5">5</span></div>
+          <div class="box item-6"><span class="value-6">6</span></div>
+          <div class="box item-7"><span class="value-7">7</span></div>
+          <div class="box item-8"><span class="value-8">8</span></div>
+          <div class="box item-9"><span class="value-9">1</span></div>
+          <div class="box item-10"><span class="value-10">2</span></div>
+          <div class="box item-11"><span class="value-11">3</span></div>
+          <div class="box item-12"><span class="value-12">4</span></div>
+          <div class="box item-13"><span class="value-13">5</span></div>
+          <div class="box item-14"><span class="value-14">6</span></div>
+          <div class="box item-15"><span class="value-15">7</span></div>
+          <div class="box item-16"><span class="value-16">8</span></div>
+        </div>
+      </div>
+      <div class="row-3">
+        <div class="remain">Remain: <span class="remain-value">8</span></div>
+        <div class="score">Score: <span class="score-value">0</span> / 8</div>
+        <div class="count-time">Time: <span class="time-value">30</span> s</div>
+      </div>
+
+      <div class="row-4">
+        <div class="ready-box"><div class="rd-btn">Ready</div></div>
+        <div class="out-of-time-box none"><span>Out Of Time !!!</span></div>
+        <div class="user-score-box none">
+          <div>Your Score: <span class="user-score-value">0</span> / 8</div>
+          <div class="back-btn">Back</div>
+        </div>
+      </div>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
