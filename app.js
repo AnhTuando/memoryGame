@@ -91,6 +91,7 @@ function countTime() {
           console.log(valueText[0], valueText[1]);
           if (valueBox[0] == valueBox[1]) {
             valueBox[0].children[0].style.opacity = 0;
+            valueBox[1].style.background = "#a1a1a1";
           } else {
             if (valueArr[0] == valueArr[1]) {
               // Matched
@@ -144,7 +145,6 @@ readyBtn.onclick = function () {
   readyBtnBox.classList.add("none");
 
   countTime();
-  handlePlay();
 };
 // out of time onclick
 outOfTimeBox.onclick = function () {
