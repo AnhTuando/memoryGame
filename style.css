@@ -38,15 +38,15 @@ body {
   font-size: 20px;
   margin: 0px 20px;
   color: aliceblue;
-  padding: 0px 10px;
+  padding: 0px 20px;
   border-radius: 15px;
 }
 .restart-btn {
   background-color: #fca314;
 }
 .new-game-btn {
-  background-color: #a1a1a1;
-  color: rgb(39, 39, 39);
+  background-color: #db4242;
+  color: rgb(255, 255, 255);
 }
 .new-game-btn:hover,
 .restart-btn:hover {
@@ -104,7 +104,6 @@ body {
 }
 
 .box span {
-  opacity: 1;
   opacity: 0;
 }
 
@@ -150,18 +149,16 @@ body {
   cursor: pointer;
   opacity: 0.8;
 }
-.none {
-  display: none;
-}
 
 .show {
   background-color: rgb(59, 59, 243);
 }
 .rule {
   position: absolute;
-  background-color: aliceblue;
+  background-color: beige;
+
   top: 200px;
-  left: 33%;
+  left: 34%;
   width: 500px;
   padding: 50px;
   z-index: 1;
@@ -187,8 +184,9 @@ body {
   .rule {
     width: 300px;
     font-size: 16px;
-    left: 15%;
-    top: 25%;
+    left: 12%;
+    top: 33%;
+    background-color: beige;
   }
   .row-1 {
     width: 100%;
@@ -207,6 +205,9 @@ body {
   }
   .new-game-btn {
     margin-left: 25px;
+  }
+  .btn-boxes {
+    margin: 0;
   }
   .row-2 {
     margin-top: 120px;
@@ -227,4 +228,41 @@ body {
   .count-time {
     font-size: 15px;
   }
+}
+/* Tablet */
+@media only screen and (min-width: 740px) and (max-width: 1180px) {
+  .rule {
+    top: 45%;
+    left: 20%;
+  }
+  .ready-box {
+    margin-top: 200px;
+  }
+  .row-2 .wrap-box {
+    margin-top: 80px;
+    width: 660px;
+  }
+  .row-2 .wrap-box .box {
+    width: 150px;
+    height: 150px;
+    background: #fca314;
+    line-height: 150px;
+    font-size: 50px;
+  }
+  .row-3 {
+    margin-top: 80px;
+  }
+  .remain,
+  .score,
+  .count-time {
+    font-size: 30px;
+  }
+}
+
+/* JS Event */
+.none {
+  display: none;
+}
+.blue-bg {
+  background: rgb(85, 121, 238);
 }

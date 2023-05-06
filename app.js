@@ -56,6 +56,7 @@ function countTime() {
     newArr.forEach(function (box) {
       box.style.opacity = 1;
       box.children[0].style.opacity = 0;
+      box.style.background = "#a1a1a1";
     });
     remain.innerHTML = 8;
     score.innerHTML = 0;
@@ -82,13 +83,13 @@ function countTime() {
         valueText[i] = box.children[0];
 
         box.children[0].style.opacity = 1;
+        box.style.background = "rgb(51, 93, 233)";
         i++;
         if (i == 2) {
           console.log(valueBox[0], valueBox[1]);
           console.log(valueArr[0], valueArr[1]);
           console.log(valueText[0], valueText[1]);
           if (valueBox[0] == valueBox[1]) {
-            console.log(true);
             valueBox[0].children[0].style.opacity = 0;
           } else {
             if (valueArr[0] == valueArr[1]) {
@@ -118,6 +119,8 @@ function countTime() {
                 valueText[0].style.opacity = 0;
                 valueText[1].style.opacity = 0;
               }, 200);
+              valueBox[0].style.background = "#a1a1a1";
+              valueBox[1].style.background = "#a1a1a1";
             }
           }
           i = 0;
