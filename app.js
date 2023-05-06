@@ -61,6 +61,73 @@ function countTime() {
     score.innerHTML = 0;
     userScoreValue.innerHTML = 0;
   };
+
+  // Play
+  function handlePlay() {
+    let boxes = document.querySelectorAll(".box");
+    // convert obj to arr
+    var newArr = Array.from(boxes);
+    newArr = [...boxes];
+    let i = 0;
+    let valueArr = [];
+    let valueBox = [];
+    let valueText = [];
+    let remainValue = 7;
+    let scoreValue = 1;
+    newArr.forEach(function (box) {
+      // Each Box onclick
+      box.addEventListener("click", function () {
+        valueBox[i] = box;
+        valueArr[i] = parseInt(box.textContent);
+        valueText[i] = box.children[0];
+
+        box.children[0].style.opacity = 1;
+        i++;
+        if (i == 2) {
+          console.log(valueBox[0], valueBox[1]);
+          console.log(valueArr[0], valueArr[1]);
+          console.log(valueText[0], valueText[1]);
+          if (valueBox[0] == valueBox[1]) {
+            console.log(true);
+            valueBox[0].children[0].style.opacity = 0;
+          } else {
+            if (valueArr[0] == valueArr[1]) {
+              // Matched
+              setTimeout(function () {
+                valueBox[0].textContent = "";
+                valueBox[1].textContent = "null";
+              }, 200);
+              valueBox[0].style.opacity = 0;
+              valueBox[1].style.opacity = 0;
+              remain.innerHTML = `${remainValue}`;
+              remainValue--;
+              score.innerHTML = `${scoreValue}`;
+              if (scoreValue == 8) {
+                clearInterval(interval);
+                scoreBox.classList.remove("none");
+                userScoreValue.innerHTML = `${scoreValue}`;
+                backBtn.onclick = function () {
+                  scoreBox.classList.add("none");
+                };
+              }
+              scoreValue++;
+
+              // Failed
+            } else {
+              setTimeout(function () {
+                valueText[0].style.opacity = 0;
+                valueText[1].style.opacity = 0;
+              }, 200);
+            }
+          }
+          i = 0;
+          valueArr = [];
+          valueBox = [];
+        }
+      });
+    });
+  }
+  handlePlay();
 }
 // restart click
 let restartBtn = document.querySelector(".restart-btn");
@@ -90,71 +157,7 @@ backBtn.onclick = function () {
 window.onload = function () {
   renderGame();
 };
-// Play
-function handlePlay() {
-  let boxes = document.querySelectorAll(".box");
-  // convert obj to arr
-  var newArr = Array.from(boxes);
-  newArr = [...boxes];
-  let i = 0;
-  let valueArr = [];
-  let valueBox = [];
-  let valueText = [];
-  let remainValue = 7;
-  let scoreValue = 1;
-  newArr.forEach(function (box) {
-    // Each Box onclick
-    box.addEventListener("click", function () {
-      valueBox[i] = box;
-      valueArr[i] = parseInt(box.textContent);
-      valueText[i] = box.children[0];
 
-      box.children[0].style.opacity = 1;
-      i++;
-      if (i == 2) {
-        console.log(valueBox[0], valueBox[1]);
-        console.log(valueArr[0], valueArr[1]);
-        console.log(valueText[0], valueText[1]);
-        if (valueBox[0] == valueBox[1]) {
-          console.log(true);
-          valueBox[0].children[0].style.opacity = 0;
-        } else {
-          if (valueArr[0] == valueArr[1]) {
-            // Matched
-            setTimeout(function () {
-              valueBox[0].textContent = "";
-              valueBox[1].textContent = "null";
-            }, 200);
-            valueBox[0].style.opacity = 0;
-            valueBox[1].style.opacity = 0;
-            remain.innerHTML = `${remainValue}`;
-            remainValue--;
-            score.innerHTML = `${scoreValue}`;
-            if (scoreValue == 8) {
-              scoreBox.classList.remove("none");
-              userScoreValue.innerHTML = `${scoreValue}`;
-              backBtn.onclick = function () {
-                scoreBox.classList.add("none");
-              };
-            }
-            scoreValue++;
-
-            // Failed
-          } else {
-            setTimeout(function () {
-              valueText[0].style.opacity = 0;
-              valueText[1].style.opacity = 0;
-            }, 200);
-          }
-        }
-        i = 0;
-        valueArr = [];
-        valueBox = [];
-      }
-    });
-  });
-}
-handlePlay();
 // attetion onclick
 let attetionBtn = document.querySelector(".attention-btn");
 attetionBtn.onclick = function () {
